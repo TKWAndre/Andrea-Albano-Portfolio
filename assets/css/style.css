@@ -1,0 +1,115 @@
+/* assets/css/style.scss */
+body {
+  font-family: "TASA Explorer", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  background: #000;
+  color: #ffffff;
+  line-height: 1.45;
+  padding-top: 75px;
+}
+
+/* assets/css/style.scss (continuazione) */
+.custom-navbar {
+  background-color: #000 !important;
+  border-bottom: 2px solid rgb(255, 196, 0);
+}
+.custom-navbar .navbar-brand,
+.custom-navbar .nav-link {
+  color: rgb(255, 196, 0) !important;
+}
+.custom-navbar .nav-link:hover {
+  color: #ffd700 !important;
+}
+.custom-navbar .navbar-toggler {
+  border-color: rgb(255, 196, 0);
+}
+.custom-navbar .navbar-toggler .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(255, 196, 0)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.card {
+  background-color: #1a1a1a;
+  border: 1px solid #333;
+  color: #fafafa;
+}
+
+.text-primary-gold {
+  color: rgb(255, 196, 0) !important;
+}
+
+.custom-btn-gold {
+  background-color: rgb(255, 196, 0);
+  border-color: rgb(255, 196, 0);
+  color: #000;
+  font-weight: bold;
+}
+.custom-btn-gold:hover {
+  background-color: #ffd700;
+  border-color: #ffd700;
+  color: #000;
+  opacity: 0.9;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+.marquee-container {
+  overflow: hidden;
+  padding: 20px 0;
+  border-radius: 8px;
+  background-color: #1a1a1a;
+  box-shadow: 0 0 15px rgba(255, 196, 0, 0.15);
+}
+
+.marquee-content {
+  display: flex;
+  width: 200%;
+  animation: marquee 40s linear infinite;
+  white-space: nowrap;
+}
+
+.skill-item {
+  box-sizing: border-box;
+  min-width: calc(100% / 8);
+  padding: 0 30px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.marquee-container:hover .marquee-content {
+  animation-play-state: paused;
+}
+
+.skill-item img {
+  max-width: 80px;
+  height: auto;
+}
+
+.social-card {
+  position: fixed;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  z-index: 1030;
+  max-width: 100px;
+}
+.social-card .card {
+  background-color: #1a1a1a;
+  border: 1px solid rgb(255, 196, 0);
+  box-shadow: 0 0 10px rgba(255, 196, 0, 0.4);
+}
+
+.social-link {
+  color: #ffffff;
+  transition: color 0.3s ease;
+}
+.social-link:hover {
+  color: rgb(255, 196, 0);
+}/*# sourceMappingURL=style.css.map */
