@@ -117,12 +117,12 @@
   </footer>
 
   <!-- EmailJS SDK -->
-  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
   <script>
-    const EMAILJS_SERVICE_ID = 'YOUR_SERVICE_ID';
-    const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';
-    const EMAILJS_PUBLIC_KEY = 'YOUR_PUBLIC_KEY';
+    const EMAILJS_SERVICE_ID = 'service_de9wyxm';
+    const EMAILJS_TEMPLATE_ID = 'template_0f9xlh8';
+    const EMAILJS_PUBLIC_KEY = 'lvOiba2EF6BEEfMoS';
 
     (function() {
       if (typeof emailjs === 'undefined') return;
@@ -168,7 +168,7 @@
             form.classList.remove('was-validated');
           }, function(error) {
             console.error('EmailJS error:', error);
-            showAlert('danger', 'Error sending message. Please try again later or email me directly at andrea@tuosito.it.');
+            showAlert('danger', 'Error sending message. Please try again later.');
           })
           .finally(function() {
             sendBtn.disabled = false;
