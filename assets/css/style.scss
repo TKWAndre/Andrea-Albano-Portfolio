@@ -1,33 +1,41 @@
 /* assets/css/style.scss */
 
-// Variabili per i colori
-$primary-color: rgb(255, 196, 0); // Il tuo color oro
-$secondary-color: #ffd700;       // Il tuo color oro hover
+// --- Variabili ---
+$primary-color: rgb(255, 196, 0); 
+$secondary-color: #ffd700;       
 $dark-background: #000;
 $card-background: #1a1a1a;
 $text-color: #ffffff;
 $border-color: #333;
 
-// Applicazione globale del colore di sfondo e del font
+// --- Stili Globali ---
 body {
-font-family: "TASA Explorer", sans-serif;
+  font-family: "TASA Explorer", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;  
-  background: #000;
+
+  /* --- INIZIO SFONDO FULL-SCREEN --- */
+  
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 1)), url('../img/ferenc-almasi-eYpcLDXHVb0-unsplash.jpg');
+  background-color: #000;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+  
+  /* --- FINE SFONDO FULL-SCREEN --- */
+
   color: #ffffff;
   line-height: 1.45;
   padding-top: 75px;
 }
 
-/* assets/css/style.scss (continuazione) */
-
-// Stile personalizzato per la navbar
+// --- Navbar ---
 .custom-navbar {
   background-color: $dark-background !important;
   border-bottom: 2px solid $primary-color; 
 
-  // Nesting: Stili per gli elementi all'interno di .custom-navbar
   .navbar-brand,
   .nav-link {
     color: $primary-color !important;
@@ -37,28 +45,26 @@ font-family: "TASA Explorer", sans-serif;
     color: $secondary-color !important;
   }
 
-  // Nesting per il bottone del menu (mobile)
   .navbar-toggler {
     border-color: $primary-color;
-    // Rendi il colore dell'icona (le tre barrette) dinamico con la variabile
     .navbar-toggler-icon {
         background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='#{$primary-color}' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
     }
   }
 }
 
-// Nesting: Stili per le card
+// --- Card ---
 .card {
   background-color: $card-background;
   border: 1px solid $border-color;
   color: #fafafa;
 }
 
+// --- Classi Utility ---
 .text-primary-gold {
     color: $primary-color !important;
 }
 
-// Stile per i pulsanti Call-to-Action
 .custom-btn-gold {
     background-color: $primary-color;
     border-color: $primary-color;
@@ -73,23 +79,23 @@ font-family: "TASA Explorer", sans-serif;
     }
 }
 
+// --- Animazione Marquee (Skills) ---
 $marquee-speed: 40s; 
 
 @keyframes marquee {
   0% {
     transform: translateX(0);
   }
-  // Sposta il contenuto del 50% (l'intera lunghezza del primo set di skill)
   100% {
     transform: translateX(-50%); 
   }
 }
 
 .marquee-container {
-  overflow: hidden; // Nasconde la parte del contenuto che esce
+  overflow: hidden;
   padding: 20px 0;
   border-radius: 8px;
-  background-color: $card-background; // Sfondo scuro per contrasto
+  background-color: $card-background;
   box-shadow: 0 0 15px rgba($primary-color, 0.15);
 }
 
@@ -97,58 +103,49 @@ $marquee-speed: 40s;
   display: flex;
   width: 200%; 
   animation: marquee $marquee-speed linear infinite; 
-  // Aggiungi questo per sicurezza:
   white-space: nowrap; 
 }
 
-$total-skills: 8; // Numero di skill in un set (totale sono 16)
+$total-skills: 8;
 
 .skill-item {
-  // CORREZIONE CRITICA:
   box-sizing: border-box; 
-  
-  // Larghezza fissa: 1/8 della larghezza del contenitore visibile (100%)
   min-width: calc(100% / #{$total-skills}); 
-  
-  padding: 0 30px; // Mantiene la spaziatura interna
+  padding: 0 30px;
   text-align: center;
   flex-shrink: 0; 
 }
 
-// Rallenta l'animazione al passaggio del mouse per la leggibilità
 .marquee-container:hover .marquee-content {
     animation-play-state: paused;
 }
 
-// Assicurati che le immagini non siano troppo grandi all'interno dell'item
 .skill-item img {
     max-width: 80px; 
     height: auto;
 }
 
-// Stile per la Card Social (Posizionamento Fisso)
+// --- Card Social (Fissa) ---
 .social-card {
     position: fixed;
-    top: 50%; // Posiziona a metà dello schermo verticalmente
-    right: 20px; // 20px di margine a destra
-    transform: translateY(-50%); // Centra perfettamente verticalmente
-    z-index: 1030; // Sopra il contenuto, ma sotto la navbar (che è 1050)
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    z-index: 1030;
     max-width: 100px;
     
     .card {
-        // Applica i colori di base già definiti
         background-color: $card-background;
         border: 1px solid $primary-color;
         box-shadow: 0 0 10px rgba($primary-color, 0.4);
     }
 }
 
-// Stile per i singoli link social (icona)
 .social-link {
-    color: $text-color; // Bianco o colore di base
+    color: $text-color;
     transition: color 0.3s ease;
     
     &:hover {
-        color: $primary-color; // Effetto hover con il colore oro
+        color: $primary-color;
     }
 }
