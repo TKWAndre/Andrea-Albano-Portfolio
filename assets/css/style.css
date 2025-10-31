@@ -4,13 +4,19 @@ body {
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
-  background: #000;
+  /* --- INIZIO SFONDO FULL-SCREEN --- */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgb(0, 0, 0)), url("../img/ferenc-almasi-eYpcLDXHVb0-unsplash.jpg");
+  background-color: #000;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+  /* --- FINE SFONDO FULL-SCREEN --- */
   color: #ffffff;
   line-height: 1.45;
   padding-top: 75px;
 }
 
-/* assets/css/style.scss (continuazione) */
 .custom-navbar {
   background-color: #000 !important;
   border-bottom: 2px solid rgb(255, 196, 0);
