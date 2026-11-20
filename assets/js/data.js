@@ -75,8 +75,8 @@ window.SITE_DATA = {
       title: { it: "Giappone in famiglia", en: "Japan with the family" },
       kicker: { it: "Vlog di viaggio · in montaggio", en: "Travel vlog · in the edit" },
       summary: {
-        it: "Due settimane in Giappone, dal 23 novembre al 7 dicembre: di giorno con la famiglia, di sera da solo in città. Girato con iPhone 15 e DJI Mic Mini, montato in DaVinci Resolve.",
-        en: "Two weeks in Japan, from 23 November to 7 December: daytime with the family, evenings alone in the city. Shot on iPhone 15 with a DJI Mic Mini, edited in DaVinci Resolve."
+        it: "Due settimane in Giappone, dal 23 novembre al 7 dicembre: di giorno con la famiglia, di sera da solo in città. Girato con Olympus OM-D E-M10 Mark IV, iPhone 15 e DJI Mic Mini, montato in DaVinci Resolve.",
+        en: "Two weeks in Japan, from 23 November to 7 December: daytime with the family, evenings alone in the city. Shot on an Olympus OM-D E-M10 Mark IV and iPhone 15 with a DJI Mic Mini, edited in DaVinci Resolve."
       },
       points: {
         it: ["Vlog lungo per YouTube", "Short verticali per Reels e TikTok", "Sottotitoli in inglese"],
@@ -92,12 +92,12 @@ window.SITE_DATA = {
       title: { it: "Setup per le dirette", en: "Live stream setup" },
       kicker: { it: "Audio, video e regia", en: "Audio, video and switching" },
       summary: {
-        it: "Preparo il setup per andare in diretta senza sorprese: inquadratura, audio pulito, scene e test della connessione. Anni di supporto tecnico mi hanno insegnato a risolvere i problemi prima che li veda il pubblico.",
-        en: "I set up everything needed to go live without surprises: framing, clean audio, scenes and connection tests. Years of tech support taught me to fix problems before the audience sees them."
+        it: "Preparo il setup per andare in diretta senza sorprese: camere, audio pulito, OBS, overlay, donazioni e test della connessione. Anni di supporto tecnico mi hanno insegnato a risolvere i problemi prima che li veda il pubblico.",
+        en: "I set up everything needed to go live without surprises: cameras, clean audio, OBS, overlays, donations and connection tests. Years of tech support taught me to fix problems before the audience sees them."
       },
       points: {
-        it: ["Schema interattivo nella sezione Setup", "Configurazione da telefono o da computer", "Checklist prima della diretta"],
-        en: ["Interactive diagram in the Setup section", "Phone or computer workflows", "Pre-show checklist"]
+        it: ["Configurazione di OBS: scene, sorgenti ed encoder", "Overlay, alert, donazioni e chat", "Checklist e diretta di prova prima di andare in onda"],
+        en: ["OBS configuration: scenes, sources and encoder", "Overlays, alerts, donations and chat", "Checklist and test stream before going live"]
       },
       link: { href: "#setup", it: "Vedi lo schema", en: "See the diagram" }
     },
@@ -212,16 +212,21 @@ window.SITE_DATA = {
     }
   ],
 
-  /* Schema del setup: i nodi e le due modalità */
+  /* Schema del setup: i nodi e le due modalità.
+     Ogni nodo ha un testo e una lista di punti (points) mostrati al clic. */
   setup: {
     nodes: {
-      phone: {
+      cams: {
         icon: "cam",
-        title: { it: "iPhone 15", en: "iPhone 15" },
-        role: { it: "Camera", en: "Camera" },
+        title: { it: "Olympus + iPhone 15", en: "Olympus + iPhone 15" },
+        role: { it: "Camere", en: "Cameras" },
         text: {
-          it: "Riprese in 4K, stabilizzate. Leggero da portare ovunque, anche in viaggio.",
-          en: "Stabilised 4K footage. Light enough to carry anywhere, even on the road."
+          it: "Due camere, due usi: la mirrorless quando conta la qualità dell'immagine, l'iPhone quando serve essere leggeri e veloci.",
+          en: "Two cameras, two jobs: the mirrorless when image quality matters, the iPhone when I need to be light and fast."
+        },
+        points: {
+          it: ["Olympus OM-D E-M10 Mark IV", "Obiettivo 14-42mm per inquadrature larghe e vlog", "Obiettivo 40-150mm per dettagli e soggetti lontani", "iPhone 15 per riprese in 4K in movimento"],
+          en: ["Olympus OM-D E-M10 Mark IV", "14-42mm lens for wide shots and vlogs", "40-150mm lens for details and distant subjects", "iPhone 15 for 4K footage on the move"]
         }
       },
       mic: {
@@ -229,17 +234,77 @@ window.SITE_DATA = {
         title: { it: "DJI Mic Mini", en: "DJI Mic Mini" },
         role: { it: "Audio", en: "Audio" },
         text: {
-          it: "Microfono wireless collegato all'iPhone. Un video si perdona se è mosso, non se si sente male.",
-          en: "Wireless mic connected to the iPhone. Viewers forgive shaky footage, never bad audio."
+          it: "Microfono wireless. Un video si perdona se è mosso, non se si sente male.",
+          en: "Wireless mic. Viewers forgive shaky footage, never bad audio."
+        },
+        points: {
+          it: ["Livelli controllati prima di ogni ripresa", "Voce pulita anche all'aperto", "Sincronizzazione tra audio e video"],
+          en: ["Levels checked before every take", "Clean voice even outdoors", "Audio and video kept in sync"]
         }
       },
-      mac: {
-        icon: "desk",
-        title: { it: "Mac mini M4", en: "Mac mini M4" },
+      support: {
+        icon: "tripod",
+        title: { it: "Cavalletti e supporti", en: "Tripods and supports" },
+        role: { it: "Stabilità", en: "Stability" },
+        text: {
+          it: "Cavalletti e accessori per un'inquadratura ferma e ripetibile, in casa come in viaggio.",
+          en: "Tripods and accessories for a steady, repeatable frame, at home and on the road."
+        },
+        points: {
+          it: ["Inquadratura fissa per parlato e dirette", "Riprese da solo, senza operatore", "Attrezzatura che cresce progetto dopo progetto"],
+          en: ["Locked-off frame for talking heads and streams", "Solo shooting, no operator needed", "Kit that grows project after project"]
+        }
+      },
+      obs: {
+        icon: "layers",
+        title: { it: "OBS su Mac mini M4", en: "OBS on Mac mini M4" },
         role: { it: "Regia", en: "Control room" },
         text: {
-          it: "Il centro di tutto: scene, overlay e controllo dell'audio quando si va in diretta dal computer.",
-          en: "The hub: scenes, overlays and audio control when going live from the computer."
+          it: "Il centro della diretta. Configuro OBS da zero: chi va in onda deve solo premere un tasto.",
+          en: "The heart of the stream. I configure OBS from scratch: whoever goes live only has to press one button."
+        },
+        points: {
+          it: ["Scene e transizioni: intro, live, pausa, chiusura", "Sorgenti video, audio e condivisione schermo", "Bitrate, risoluzione ed encoder adatti alla connessione", "Collegamento alla piattaforma e diretta di prova"],
+          en: ["Scenes and transitions: intro, live, break, outro", "Video, audio and screen-share sources", "Bitrate, resolution and encoder matched to the connection", "Platform connection and a test stream"]
+        }
+      },
+      overlay: {
+        icon: "frame",
+        title: { it: "Overlay e alert", en: "Overlays and alerts" },
+        role: { it: "Grafica", en: "Graphics" },
+        text: {
+          it: "La parte che fa sembrare una diretta un programma: grafiche coerenti con il brand e avvisi che compaiono al momento giusto.",
+          en: "The part that makes a stream look like a show: on-brand graphics and alerts that appear at the right moment."
+        },
+        points: {
+          it: ["Cornici, sottopancia e schermate di attesa", "Alert per nuovi iscritti e follower", "Colori e font allineati al brand"],
+          en: ["Frames, lower thirds and waiting screens", "Alerts for new subscribers and followers", "Colours and fonts aligned with the brand"]
+        }
+      },
+      community: {
+        icon: "heart",
+        title: { it: "Donazioni e chat", en: "Donations and chat" },
+        role: { it: "Community", en: "Community" },
+        text: {
+          it: "Una diretta funziona se il pubblico partecipa. Preparo gli strumenti perché possa farlo, e sostenere chi trasmette.",
+          en: "A stream works when the audience takes part. I set up the tools that let them do it, and support the streamer."
+        },
+        points: {
+          it: ["Configurazione delle donazioni e dei relativi alert", "Obiettivi e barre di avanzamento a schermo", "Chat in sovrimpressione e regole di moderazione"],
+          en: ["Donation setup with matching alerts", "On-screen goals and progress bars", "On-screen chat and moderation rules"]
+        }
+      },
+      onair: {
+        icon: "out",
+        title: { it: "In onda", en: "On air" },
+        role: { it: "Diretta", en: "Live" },
+        text: {
+          it: "Checklist prima di partire e supporto tecnico durante la diretta, per risolvere i problemi prima che li veda il pubblico.",
+          en: "A pre-show checklist and tech support during the stream, to fix problems before the audience sees them."
+        },
+        points: {
+          it: ["Test di connessione, audio e scene", "Titolo, copertina e descrizione della diretta", "Clip e short ricavati dalla registrazione"],
+          en: ["Connection, audio and scene tests", "Stream title, thumbnail and description", "Clips and shorts cut from the recording"]
         }
       },
       resolve: {
@@ -249,6 +314,10 @@ window.SITE_DATA = {
         text: {
           it: "Taglio, color, audio e sottotitoli. Lo stesso girato diventa un video lungo e più short verticali.",
           en: "Cutting, colour, audio and subtitles. The same footage becomes a long video and several vertical shorts."
+        },
+        points: {
+          it: ["Montaggio e ritmo", "Color grading e pulizia dell'audio", "Sottotitoli in italiano e inglese"],
+          en: ["Editing and pacing", "Colour grading and audio clean-up", "Italian and English subtitles"]
         }
       },
       out: {
@@ -258,12 +327,16 @@ window.SITE_DATA = {
         text: {
           it: "Formato, copertina, titolo e orario giusti per ogni piattaforma.",
           en: "The right format, thumbnail, title and timing for each platform."
+        },
+        points: {
+          it: ["Versione orizzontale e verticale", "Copertine e titoli", "Pubblicazione programmata"],
+          en: ["Horizontal and vertical versions", "Thumbnails and titles", "Scheduled publishing"]
         }
       }
     },
     modes: {
-      live: ["phone", "mic", "mac", "out"],
-      rec: ["phone", "mic", "resolve", "out"]
+      live: ["cams", "mic", "obs", "overlay", "community", "onair"],
+      rec: ["cams", "mic", "support", "resolve", "out"]
     }
   }
 };

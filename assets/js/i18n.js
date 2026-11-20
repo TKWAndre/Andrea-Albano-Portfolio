@@ -38,14 +38,14 @@ window.I18N_EN = {
   "roles.video.4": "Italian and English subtitles",
   "roles.content.text": "Ideas, filming and storytelling. I'm building a travel channel for people who dream of leaving but are scared to do it with kids.",
   "roles.content.1": "Repeatable ideas and formats",
-  "roles.content.2": "Filming on iPhone with wireless audio",
+  "roles.content.2": "Filming on mirrorless and iPhone with wireless audio",
   "roles.content.3": "Travel, opinions and everyday life",
   "roles.content.4": "Photography",
   "roles.live.text": "For years I configured terminals and fixed faults in real time. Now I do it for live streams: everything ready before you hit \"Go live\".",
-  "roles.live.1": "Audio, camera and framing",
-  "roles.live.2": "Scenes and overlays",
-  "roles.live.3": "Connection testing",
-  "roles.live.4": "Tech support during the stream",
+  "roles.live.1": "Cameras, audio and framing",
+  "roles.live.2": "OBS configuration: scenes, sources, encoder",
+  "roles.live.3": "Overlays, alerts, donations and chat",
+  "roles.live.4": "Testing and tech support during the stream",
 
   "stats.1": "years working with customers",
   "stats.2": "brand built from scratch",
@@ -80,7 +80,7 @@ window.I18N_EN = {
   "path.h5": "DIY",
 
   "setup.title": "My setup",
-  "setup.sub": "Pick a mode and tap an item to see what it does. The signal flows from left to right.",
+  "setup.sub": "Pick a mode and tap a step to see what I set up. I start from the gear I have and raise the quality with every project.",
   "setup.live": "Live",
   "setup.rec": "Record and edit",
 
@@ -97,7 +97,7 @@ window.I18N_EN = {
   "form.send": "Send message",
   "form.sending": "Sending…",
   "form.ok": "Message sent! I'll get back to you soon.",
-  "form.err": "Something went wrong. Write to me at info@gaiacoords.com.",
+  "form.err": "Something went wrong. Write to me at albanoandrea17+smm@gmail.com.",
   "form.check": "Please fill in all fields and tick the consent box.",
   "topic.job": "Job offer",
 
@@ -117,7 +117,7 @@ window.I18N_IT_JS = {
   "contact.copied": "Copiata!",
   "form.sending": "Invio in corso…",
   "form.ok": "Messaggio inviato! Ti rispondo presto.",
-  "form.err": "Qualcosa non ha funzionato. Scrivimi a info@gaiacoords.com.",
+  "form.err": "Qualcosa non ha funzionato. Scrivimi a albanoandrea17+smm@gmail.com.",
   "form.check": "Compila tutti i campi e spunta il consenso.",
   "topic.job": "Offerta di lavoro"
 };
