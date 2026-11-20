@@ -22,12 +22,20 @@ window.SITE_DATA = {
       roles: ["smm", "content", "web"],
       year: "2026",
       status: "live",
-      cover: { type: "brand", label: "GAIACOORDS" },
+      cover: { type: "image", src: "assets/img/gaiacoords/cover.webp" },
+      fit: "contain",
+      gallery: [
+        "assets/img/gaiacoords/tshirt-japan-serenity.webp",
+        "assets/img/gaiacoords/felpa-saint-tropez.webp",
+        "assets/img/gaiacoords/tshirt-milano.webp",
+        "assets/img/gaiacoords/cappellino-pink-wave.webp",
+        "assets/img/gaiacoords/cappellino-logo.webp"
+      ],
       title: { it: "GaiaCoords", en: "GaiaCoords" },
       kicker: { it: "Brand e-commerce · fondatore", en: "E-commerce brand · founder" },
       summary: {
-        it: "Ho fondato e gestisco un brand di abbigliamento online: t-shirt, felpe e accessori. Dal nome al sito, l'ho costruito da solo.",
-        en: "I founded and run an online clothing brand: t-shirts, hoodies and accessories. From the name to the website, I built it on my own."
+        it: "Ho fondato e gestisco un brand streetwear online: t-shirt, felpe, cappellini e accessori ispirati a mappe, luoghi e Giappone. Dal nome al sito, l'ho costruito da solo.",
+        en: "I founded and run an online streetwear brand: t-shirts, hoodies, caps and accessories inspired by maps, places and Japan. From the name to the website, I built it on my own."
       },
       points: {
         it: ["Brand identity e logo", "Sito creato da zero, con SEO", "Contenuti e gestione dei social", "Ordini, clienti e assistenza"],

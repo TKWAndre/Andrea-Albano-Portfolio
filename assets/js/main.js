@@ -281,7 +281,7 @@
   function openWork(w) {
     let media;
     if (w.gallery) {
-      media = `<div class="carousel" id="car">
+      media = `<div class="carousel${w.fit === "contain" ? " carousel--contain" : ""}" id="car">
         <div class="carousel__track">${w.gallery.map((src, i) => `<img src="${src}" alt="${tx(w.title)} ${i + 1}" draggable="false">`).join("")}</div>
         <button class="carousel__nav carousel__nav--prev" type="button" aria-label="Precedente">‹</button>
         <button class="carousel__nav carousel__nav--next" type="button" aria-label="Successiva">›</button>
