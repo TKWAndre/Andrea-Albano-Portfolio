@@ -41,6 +41,11 @@
     img.complete ? set() : img.addEventListener("load", set, { once: true });
   });
 
+  /* Clip video: con "riduci movimento" non partono da sole, e compaiono i comandi */
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    $$(".loopvid video").forEach(v => { v.removeAttribute("autoplay"); v.pause(); v.controls = true; });
+  }
+
   /* Visore a schermo intero: tutte le foto del post, con frecce, tastiera e swipe */
   const lb = $("#lb");
   const shots = [];

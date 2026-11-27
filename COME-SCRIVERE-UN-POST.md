@@ -79,6 +79,14 @@ Due foto nella stessa galleria finiscono affiancate. Puoi aggiungere `didascalia
 
 Chi legge può toccare qualsiasi foto per aprirla a schermo intero e scorrerle tutte, con le frecce o con il dito.
 
+**Un video breve, tuo:** parte da solo, senza audio, e si ripete, come una foto che si muove. Va bene per clip di pochi secondi (sotto i 3 MB, in `.mp4`).
+
+```
+{% include clip.html src="/assets/img/blog/nome-post/video.mp4" poster="/assets/img/blog/nome-post/video.webp" alt="Cosa si vede" didascalia="Testo" larga=true %}
+```
+
+Il `poster` è l'immagine che si vede mentre il video carica. I video lunghi o con l'audio vanno su YouTube.
+
 **Video YouTube:**
 
 ```
