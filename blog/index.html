@@ -1,0 +1,32 @@
+---
+layout: blog-base
+title: Blog
+description: Viaggi in famiglia, video editing e social media. Il blog di Andrea Albano.
+---
+<section class="bloghead" id="top">
+  <h1 class="bloghead__title">Blog</h1>
+  <p class="bloghead__lead">Viaggi in famiglia per chi ha paura di partire con i figli, il montaggio dietro ai video e quello che imparo lavorando sui social.</p>
+  {%- if site.posts.size > 1 -%}
+  <div class="filters" id="blogFilters" role="toolbar" aria-label="Filtra i post">
+    <button type="button" class="chip is-on" data-cat="all" aria-pressed="true">Tutti</button>
+    {%- for c in site.categorie -%}
+    {%- assign n = site.posts | where: "categoria", c[0] | size -%}
+    {%- if n > 0 -%}<button type="button" class="chip" data-cat="{{ c[0] }}" aria-pressed="false">{{ c[1] }}<sup>{{ n }}</sup></button>{%- endif -%}
+    {%- endfor -%}
+  </div>
+  {%- endif -%}
+</section>
+
+<section class="bloglist">
+  {%- if site.posts.size == 0 -%}
+  <p class="bloglist__empty">Il primo post arriva a breve.</p>
+  {%- else -%}
+  <div class="cards" id="cards">
+    {%- for p in site.posts -%}
+    {%- if forloop.first -%}{% include post-card.html post=p big=true %}{%- else -%}{% include post-card.html post=p %}{%- endif -%}
+    {%- endfor -%}
+  </div>
+  <p class="bloglist__empty" id="cardsEmpty" hidden>Nessun post in questa categoria, per ora.</p>
+  {%- endif -%}
+  <p class="bloglist__rss"><a href="{{ '/blog/feed.xml' | relative_url }}">Segui il blog con RSS</a></p>
+</section>

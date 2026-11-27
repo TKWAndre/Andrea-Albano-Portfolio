@@ -1,0 +1,47 @@
+# Impostazioni del sito per GitHub Pages (Jekyll).
+# Di solito non serve toccare niente qui: i post si scrivono in _posts/.
+# Guida: COME-SCRIVERE-UN-POST.md
+
+title: Andrea Albano
+description: Viaggi in famiglia, video editing e social media, raccontati da Andrea Albano.
+author: Andrea Albano
+lang: it_IT
+timezone: Europe/Rome
+
+url: "https://tkwandre.github.io"
+baseurl: "/Andrea-Albano-Portfolio"
+
+permalink: /blog/:title/
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+  auto_ids: true
+
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+feed:
+  path: blog/feed.xml
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+
+# Le categorie dei post: nel post scrivi la chiave (viaggi, video o social).
+categorie:
+  viaggi: Viaggi
+  video: Video editing
+  social: Social media
+
+exclude:
+  - README.md
+  - COME-SCRIVERE-UN-POST.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor

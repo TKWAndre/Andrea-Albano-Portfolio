@@ -1,0 +1,10 @@
+{%- comment -%}
+  Video YouTube nel post. Uso: {% include youtube.html id="CODICE" titolo="Titolo del video" %}
+  Il codice è la parte dopo "v=" nel link, o dopo "youtu.be/".
+{%- endcomment -%}
+<figure class="video">
+  <div class="video__frame">
+    <iframe src="https://www.youtube-nocookie.com/embed/{{ include.id }}" title="{{ include.titolo | default: 'Video' | escape }}" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+  </div>
+  {%- if include.titolo -%}<figcaption>{{ include.titolo }}</figcaption>{%- endif -%}
+</figure>

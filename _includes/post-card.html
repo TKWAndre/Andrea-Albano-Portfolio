@@ -1,0 +1,21 @@
+{%- assign p = include.post -%}
+{%- assign mins = p.content | number_of_words | divided_by: 200 | at_least: 1 -%}
+<article class="card{% if include.big %} card--big{% endif %}" data-cat="{{ p.categoria }}">
+  <a class="card__link" href="{{ p.url | relative_url }}">
+    <div class="card__frame">
+      {%- if p.copertina -%}
+      <img src="{{ p.copertina | relative_url }}" alt="{{ p.copertina_alt | default: '' | escape }}" loading="lazy">
+      {%- else -%}
+      <div class="card__blank"><span>{{ p.luogo | default: p.title }}</span></div>
+      {%- endif -%}
+      {%- if p.coordinate -%}<span class="card__coords">{{ p.coordinate }}</span>{%- endif -%}
+    </div>
+    <div class="card__slate">
+      <span><time datetime="{{ p.date | date_to_xmlschema }}">{{ p.date | date: '%d.%m.%Y' }}</time></span>
+      <span>{{ site.categorie[p.categoria] | default: p.categoria }}</span>
+      <span>{{ mins }} min</span>
+    </div>
+    <h3 class="card__title">{{ p.title }}</h3>
+    <p class="card__excerpt">{{ p.descrizione | default: p.excerpt | strip_html | truncatewords: 28 }}</p>
+  </a>
+</article>

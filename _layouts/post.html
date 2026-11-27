@@ -1,0 +1,47 @@
+---
+layout: blog-base
+---
+{%- assign mins = content | number_of_words | divided_by: 200 | at_least: 1 -%}
+<article class="post" id="top">
+  <header class="post__head">
+    <div class="post__frame{% unless page.copertina %} post__frame--blank{% endunless %}">
+      {%- if page.copertina -%}
+      <img src="{{ page.copertina | relative_url }}" alt="{{ page.copertina_alt | default: '' | escape }}" fetchpriority="high">
+      {%- endif -%}
+    </div>
+    <div class="post__titles">
+      <a class="post__back" href="{{ '/blog/' | relative_url }}">Tutti i post</a>
+      <h1 class="post__title">{{ page.title }}</h1>
+      {%- if page.descrizione -%}<p class="post__dek">{{ page.descrizione }}</p>{%- endif -%}
+      <dl class="slate">
+        <div><dt>Data</dt><dd><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%d.%m.%Y' }}</time></dd></div>
+        <div><dt>Tema</dt><dd>{{ site.categorie[page.categoria] | default: page.categoria }}</dd></div>
+        {%- if page.luogo -%}<div><dt>Luogo</dt><dd>{{ page.luogo }}</dd></div>{%- endif -%}
+        {%- if page.coordinate -%}<div><dt>Coordinate</dt><dd>{{ page.coordinate }}</dd></div>{%- endif -%}
+        <div><dt>Lettura</dt><dd>{{ mins }} min</dd></div>
+      </dl>
+    </div>
+  </header>
+
+  <div class="prose">
+    {{ content }}
+  </div>
+
+  <footer class="post__end">
+    <div class="sign">
+      <img src="{{ '/assets/img/new/andrea-avatar.webp' | relative_url }}" alt="" width="64" height="64">
+      <p><b>Andrea Albano</b><br>Social Media Manager e video editor. Viaggio con la mia famiglia e lo racconto qui e su <a href="https://www.instagram.com/andrealbano.mp4/" target="_blank" rel="noopener">Instagram</a>.</p>
+    </div>
+    <a class="btn btn--accent" href="{{ '/' | relative_url }}#contatti">Lavoriamo insieme</a>
+  </footer>
+</article>
+
+{%- assign others = site.posts | where_exp: "p", "p.url != page.url" -%}
+{%- if others.size > 0 -%}
+<section class="more">
+  <h2 class="more__title">Altri post</h2>
+  <div class="cards cards--more">
+    {%- for p in others limit: 2 -%}{% include post-card.html post=p %}{%- endfor -%}
+  </div>
+</section>
+{%- endif -%}

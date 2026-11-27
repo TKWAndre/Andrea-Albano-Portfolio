@@ -1,0 +1,8 @@
+{%- comment -%}
+  Foto nel post. Uso: {% include foto.html src="/assets/img/blog/nome-post/foto.webp" alt="Cosa si vede" didascalia="Testo sotto la foto" larga=true %}
+  larga=true la fa uscire dalla colonna di testo. didascalia e larga si possono togliere.
+{%- endcomment -%}
+<figure class="photo{% if include.larga %} photo--wide{% endif %}">
+  <img src="{{ include.src | relative_url }}" alt="{{ include.alt | escape }}" loading="lazy">
+  {%- if include.didascalia -%}<figcaption>{{ include.didascalia }}</figcaption>{%- endif -%}
+</figure>
