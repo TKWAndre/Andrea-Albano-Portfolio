@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0c0b0a">
+  {%- assign t = page.title | default: site.title -%}
+  {%- assign d = page.descrizione | default: page.description | default: site.description | strip_html | strip -%}
+  {%- assign img = page.copertina | default: '/assets/img/og-image.jpg' -%}
+  <title>{% if page.title %}{{ page.title }} · Andrea Albano{% else %}{{ site.title }}{% endif %}</title>
+  <meta name="description" content="{{ d | escape }}">
+  <meta name="author" content="Andrea Albano">
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
+  <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:site_name" content="Andrea Albano">
+  <meta property="og:title" content="{{ t | escape }}">
+  <meta property="og:description" content="{{ d | escape }}">
+  <meta property="og:url" content="{{ page.url | absolute_url }}">
+  <meta property="og:image" content="{{ img | absolute_url }}">
+  <meta name="twitter:card" content="summary_large_image">
+  {%- if page.layout == 'post' %}
+  <meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}">
+  {%- endif %}
+  {% feed_meta %}
+  <link rel="icon" type="image/png" href="{{ '/assets/favicon.png' | relative_url }}">
+  <link rel="apple-touch-icon" href="{{ '/assets/apple-touch-icon.png' | relative_url }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500..900&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&family=Literata:ital,opsz,wght@0,7..72,400..600;1,7..72,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/blog.css' | relative_url }}">
+</head>
+
+<body class="is-blog{% if page.layout == 'post' and page.copertina %} has-hero{% endif %}">
+  <a class="skip" href="#main">Vai al contenuto</a>
+
+  <header class="topbar" id="topbar">
+    <a class="brand" href="{{ '/' | relative_url }}" aria-label="Andrea Albano, vai alla home">
+      <img src="{{ '/assets/img/new/logo-aa.webp' | relative_url }}" alt="" width="46" height="30">
+      <span class="brand__name">Andrea Albano</span>
+    </a>
+
+    <nav class="nav" id="nav" aria-label="Navigazione principale">
+      <a href="{{ '/' | relative_url }}#ruoli">Cosa faccio</a>
+      <a href="{{ '/' | relative_url }}#lavori">Lavori</a>
+      <a href="{{ '/' | relative_url }}#percorso">Percorso</a>
+      <a href="{{ '/blog/' | relative_url }}" class="is-active" aria-current="page">Blog</a>
+      <a href="{{ '/' | relative_url }}#contatti" class="nav__cta">Scrivimi</a>
+    </nav>
+
+    <div class="topbar__tools">
+      {% if page.layout == 'post' %}
+      <div class="rec rec--read" aria-hidden="true"><span class="rec__dot"></span><span class="rec__tc" id="readTc">00:00</span><span class="rec__of">/ {{ page.content | number_of_words | divided_by: 200 | at_least: 1 }}:00</span></div>
+      {% endif %}
+      <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="nav" aria-label="Apri il menu">
+        <span></span><span></span>
+      </button>
+    </div>
+    {% if page.layout == 'post' %}<div class="scrub" aria-hidden="true"><span id="scrub"></span></div>{% endif %}
+  </header>
+
+  <main id="main">
+    {{ content }}
+  </main>
+
+  <footer class="footer">
+    <p>© {{ site.time | date: '%Y' }} Andrea Albano · Milano</p>
+    <p><a href="{{ '/blog/feed.xml' | relative_url }}">RSS</a> · <a href="{{ '/privacy.html' | relative_url }}">Privacy</a> · <a href="#top">Torna su ↑</a></p>
+  </footer>
+
+  <!-- Visore delle foto a schermo intero -->
+  <dialog class="lb" id="lb" aria-label="Foto a schermo intero">
+    <button class="lb__btn lb__close" type="button" id="lbClose" aria-label="Chiudi">✕</button>
+    <button class="lb__btn lb__prev" type="button" id="lbPrev" aria-label="Foto precedente">←</button>
+    <button class="lb__btn lb__next" type="button" id="lbNext" aria-label="Foto successiva">→</button>
+    <figure class="lb__fig">
+      <img id="lbImg" alt="">
+      <figcaption><span id="lbCap"></span><span class="lb__count" id="lbCount"></span></figcaption>
+    </figure>
+  </dialog>
+
+  <script src="{{ '/assets/js/blog.js' | relative_url }}" defer></script>
+</body>
+</html>

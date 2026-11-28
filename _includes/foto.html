@@ -1,0 +1,18 @@
+{%- comment -%}
+  Foto nel post.
+  Uso: {% include foto.html src="/assets/img/blog/nome-post/foto.webp" alt="Cosa si vede" %}
+  Si possono aggiungere:
+    didascalia="Testo sotto la foto"
+    scatto="Olympus E-M10 IV, 14-42mm, f/5.6, 1/250 s, ISO 200"
+    larga=true    esce dalla colonna di testo
+    piena=true    occupa tutta la larghezza dello schermo
+{%- endcomment -%}
+<figure class="photo{% if include.piena %} photo--full{% elsif include.larga %} photo--wide{% endif %}" data-zoom>
+  <img src="{{ include.src | relative_url }}" alt="{{ include.alt | escape }}" loading="lazy">
+  {%- if include.didascalia or include.scatto -%}
+  <figcaption>
+    {%- if include.didascalia -%}<span class="photo__cap">{{ include.didascalia }}</span>{%- endif -%}
+    {%- if include.scatto -%}<span class="photo__exif">{{ include.scatto }}</span>{%- endif -%}
+  </figcaption>
+  {%- endif -%}
+</figure>

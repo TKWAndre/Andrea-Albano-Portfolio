@@ -11,6 +11,7 @@ window.I18N_EN = {
   "nav.works": "Work",
   "nav.path": "Journey",
   "nav.setup": "Setup",
+  "nav.blog": "Blog",
   "nav.contact": "Get in touch",
 
   "hero.eyebrow": "Milan · open to new projects",
@@ -83,6 +84,10 @@ window.I18N_EN = {
   "setup.sub": "Pick a mode and tap a step to see what I set up. I start from the gear I have and raise the quality with every project.",
   "setup.live": "Live",
   "setup.rec": "Record and edit",
+
+  "blog.title": "From the blog",
+  "blog.sub": "Family travel, the editing behind the videos and what I learn on social media. Posts are in Italian.",
+  "blog.all": "Read all posts",
 
   "contact.title": "Let's make something people watch until the end.",
   "contact.sub": "Looking for a Social Media Manager, someone to edit your videos or set up your live stream? Write to me: I reply fast, it used to be my job.",

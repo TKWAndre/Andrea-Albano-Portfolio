@@ -1,0 +1,10 @@
+{%- comment -%}
+  Un tuo video breve nel post: parte da solo, senza audio, e si ripete. Come una foto che si muove.
+  Uso: {% include clip.html src="/assets/img/blog/nome-post/video.mp4" poster="/assets/img/blog/nome-post/video.webp" alt="Cosa si vede" %}
+  Si possono aggiungere didascalia="Testo", larga=true oppure piena=true.
+  Per i video lunghi o con l'audio usa YouTube: {% include youtube.html id="CODICE" %}
+{%- endcomment -%}
+<figure class="loopvid{% if include.piena %} photo--full{% elsif include.larga %} photo--wide{% endif %}">
+  <video src="{{ include.src | relative_url }}"{% if include.poster %} poster="{{ include.poster | relative_url }}"{% endif %} autoplay muted loop playsinline preload="metadata" aria-label="{{ include.alt | escape }}"></video>
+  {%- if include.didascalia -%}<figcaption><span class="photo__cap">{{ include.didascalia }}</span></figcaption>{%- endif -%}
+</figure>

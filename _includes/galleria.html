@@ -1,0 +1,32 @@
+{%- comment -%}
+  Galleria di foto: si impagina da sola, a righe, rispettando il formato di ogni foto.
+  Uso più semplice: carica le foto in una cartella e scrivi
+    {% include galleria.html cartella="/assets/img/blog/nome-post/giorno-1/" %}
+  Compaiono tutte, in ordine di nome del file (01.webp, 02.webp, ...).
+  Per sceglierne solo alcune, o per decidere l'ordine:
+    {% include galleria.html cartella="/assets/img/blog/nome-post/" foto="tempio.webp, strada.webp" %}
+  Si può aggiungere didascalia="Testo sotto la galleria".
+{%- endcomment -%}
+{%- assign dir = include.cartella -%}
+{%- assign last = dir | slice: -1 -%}
+{%- unless last == "/" -%}{%- assign dir = dir | append: "/" -%}{%- endunless -%}
+<figure class="gallery" data-gallery>
+  <div class="gallery__rows">
+    {%- if include.foto -%}
+      {%- assign names = include.foto | split: "," -%}
+      {%- for n in names -%}
+      {%- assign nn = n | strip -%}
+      <a class="gallery__item" href="{{ dir | append: nn | relative_url }}"><img src="{{ dir | append: nn | relative_url }}" alt="{{ include.alt | default: page.luogo | default: page.title | escape }}, foto {{ forloop.index }}" loading="lazy"></a>
+      {%- endfor -%}
+    {%- else -%}
+      {%- assign files = site.static_files | where_exp: "f", "f.path contains dir" | sort: "path" -%}
+      {%- for f in files -%}
+      {%- assign ext = f.extname | downcase -%}
+      {%- if ext == ".webp" or ext == ".jpg" or ext == ".jpeg" or ext == ".png" or ext == ".avif" -%}
+      <a class="gallery__item" href="{{ f.path | relative_url }}"><img src="{{ f.path | relative_url }}" alt="{{ include.alt | default: page.luogo | default: page.title | escape }}, foto {{ forloop.index }}" loading="lazy"></a>
+      {%- endif -%}
+      {%- endfor -%}
+    {%- endif -%}
+  </div>
+  {%- if include.didascalia -%}<figcaption>{{ include.didascalia }}</figcaption>{%- endif -%}
+</figure>

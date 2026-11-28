@@ -1,3 +1,6 @@
+---
+# Questa riga e quella sotto servono a Jekyll per mostrare gli ultimi post del blog.
+---
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -27,8 +30,10 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500..900&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500..900&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&family=Literata:ital,opsz,wght@0,7..72,400..600;1,7..72,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/blog.css">
+  <link rel="alternate" type="application/rss+xml" title="Blog di Andrea Albano" href="blog/feed.xml">
 
   <script type="application/ld+json">
   {
@@ -62,6 +67,7 @@
       <a href="#lavori" data-i18n="nav.works">Lavori</a>
       <a href="#percorso" data-i18n="nav.path">Percorso</a>
       <a href="#setup" data-i18n="nav.setup">Setup</a>
+      <a href="blog/" data-i18n="nav.blog">Blog</a>
       <a href="#contatti" class="nav__cta" data-i18n="nav.contact">Scrivimi</a>
     </nav>
 
@@ -311,11 +317,28 @@
       </div>
     </section>
 
+    <!-- BLOG: mostra da solo gli ultimi 3 post di _posts/ -->
+    {%- if site.posts.size > 0 %}
+    <section class="section homeblog" id="blog">
+      <header class="section__head reveal">
+        <span class="section__num">05</span>
+        <h2 data-i18n="blog.title">Dal blog</h2>
+        <p data-i18n="blog.sub">Viaggi in famiglia, il montaggio dietro ai video e quello che imparo sui social. I post sono in italiano.</p>
+      </header>
+      <div class="cards{% if site.posts.size == 1 %} cards--one{% endif %} reveal">
+        {%- for p in site.posts limit: 3 -%}
+        {%- if forloop.first -%}{% include post-card.html post=p big=true %}{%- else -%}{% include post-card.html post=p %}{%- endif -%}
+        {%- endfor -%}
+      </div>
+      <a class="btn btn--ghost homeblog__all reveal" href="blog/" data-i18n="blog.all">Leggi tutti i post</a>
+    </section>
+    {%- endif %}
+
     <!-- CONTATTI -->
     <section class="section section--contact" id="contatti">
       <div class="contact">
         <div class="contact__left reveal">
-          <span class="section__num">05</span>
+          <span class="section__num">{% if site.posts.size > 0 %}06{% else %}05{% endif %}</span>
           <h2 class="contact__title" data-i18n="contact.title">Facciamo qualcosa che la gente guarda fino alla fine.</h2>
           <p data-i18n="contact.sub">Cerchi un Social Media Manager, qualcuno che ti monti i video o che ti prepari la diretta? Scrivimi: rispondo in fretta, è il mio vecchio mestiere.</p>
           <button class="copy" id="copyMail" type="button" data-mail="albanoandrea17+smm@gmail.com">
