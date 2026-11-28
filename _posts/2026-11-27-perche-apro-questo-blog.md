@@ -14,7 +14,7 @@ Adesso lo tiro fuori. Questo blog è il posto dove lo faccio sul serio.
 
 ## Di cosa parlo
 
-Prima di tutto di **viaggi in famiglia**. Scrivo per chi sogna di partire ma ha paura di farlo con i figli piccoli. Ce l'avevo anch'io, quella paura. Il primo grande viaggio l'abbiamo fatto in Giappone, con una bimba di 16 mesi.
+Prima di tutto di **viaggi in famiglia**. Scrivo per chi sogna di partire ma ha paura di farlo con i figli piccoli. Ce l'avevo anch'io, quella paura. Il primo grande viaggio in tre l'abbiamo fatto in Giappone, con una bimba di 16 mesi.
 
 Poi di **video editing**: come monto i miei video, cosa uso, cosa sbaglio. Monto in DaVinci Resolve su un Mac mini, giro con un iPhone 15, una Olympus e un microfono DJI.
 
