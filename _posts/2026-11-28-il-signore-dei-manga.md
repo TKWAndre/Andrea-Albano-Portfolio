@@ -29,7 +29,7 @@ Ogni tanto, di pomeriggio, esco da solo. Cammino senza una meta e guardo le scri
 
 Mi è capitato davanti al primo programma di montaggio, quando non sapevo nemmeno tagliare una clip. Mi è capitato quando ho deciso di costruirmi un sito da zero. Non ho una laurea, ho un diploma tecnico e anni passati a risolvere i problemi degli altri al telefono. Tutto il resto l'ho imparato mettendomi lì, sbagliando e rifacendo.
 
-Non sempre è finita bene. Ho aperto un negozio online di abbigliamento ed è stata una delusione. È iniziato tutto a marzo e lo chiuderò prima che finisca l'anno. Lo dico senza girarci intorno, perché è anche la cosa che mi ha insegnato di più. Ho capito come funzionano davvero le cose quando nessuno ti conosce e nessuno ti deve niente. Quella lezione non l'avrei imparata in nessun corso.
+Non sempre è finita bene. Ho aperto un negozio online di abbigliamento ed è stata una delusione. Lo dico senza girarci intorno, perché è anche la cosa che mi ha insegnato di più. Ho capito come funzionano davvero le cose quando nessuno ti conosce e nessuno ti deve niente. Quella lezione non l'avrei imparata in nessun corso.
 
 Quindi so come si fa. Si parte da non saper fare niente e ci si mette.
 
